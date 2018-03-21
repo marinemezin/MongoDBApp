@@ -27,7 +27,8 @@ exports.launchQuery1 = function (req, res) {
         dbo.collection("publis").find(query).toArray(function (err, result) {
             if (err) throw err;
             console.log(result);
-            db.close();
+            res.json(result);
+            //db.close();
         });
     });
 };
