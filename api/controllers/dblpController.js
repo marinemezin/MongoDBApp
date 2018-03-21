@@ -3,7 +3,12 @@ var mongoose = require('mongoose');
 //Utils
 var errorHandler = require('../handlers/dblpHandler');
 //Model
-var DBLP = db.model('Publication');
+var HOST = 'localhost',
+    PORT = 3000,
+    DB = 'DBLP',
+    URI = 'mongodb://' + HOST + '/' + DB;
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:" + PORT + "/";
 
 //Research
 exports.launchQuery1 = function (req, res) {
@@ -12,10 +17,18 @@ exports.launchQuery1 = function (req, res) {
     }).catch(function (err) {
         errorHandler.error(res, err.message, "Failed to get publications");
     });*/
-    DBLP.find({}).then(function (dblps) {
-        res.json(dblps);
-    }).catch(function (err) {
-        errorHandler.error(res, err.message, "Failed to get publications");
+    
+    MongoClient.connect(URI, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("DBLP");
+
+        var query = { type: "Article" };
+
+        dbo.collection("publis").find(query).toArray(function (err, result) {
+            if (err) throw err;
+            res.status(200).json(result);
+            db.close();
+        });
     });
 };
 
