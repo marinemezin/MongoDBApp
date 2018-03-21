@@ -8,4 +8,7 @@ module.exports = function (app) {
 
     app.route('/query2')
         .get(dblp.launchQuery2)
+
+    app.route('/query3')
+        .get(dblp.launchQuery3)
 };
