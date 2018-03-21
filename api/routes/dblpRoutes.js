@@ -3,9 +3,9 @@
 module.exports = function (app) {
     var dblp = require('../controllers/dblpController');
 
-    app.route('/xxx')
-        .get(dblp.XXX)
+    app.route('/query1')
+        .get(dblp.launchQuery1)
 
-    app.route('/xxx')
-        .get(dblp.XXX)
+    app.route('/query2')
+        .get(dblp.launchQuery2)
 };
