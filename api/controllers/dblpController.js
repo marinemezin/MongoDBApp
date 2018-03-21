@@ -8,7 +8,8 @@ var HOST = 'localhost',
     DB = 'DBLP',
     URI = 'mongodb://' + HOST + '/' + DB;
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:" + PORT + "/";
+var url = "mongodb://localhost:" + PORT;
+//var publis = db.model('publis');
 
 //Research
 exports.launchQuery1 = function (req, res) {
@@ -17,20 +18,19 @@ exports.launchQuery1 = function (req, res) {
     }).catch(function (err) {
         errorHandler.error(res, err.message, "Failed to get publications");
     });*/
-    
-    MongoClient.connect(URI, function (err, db) {
+        
+    /*var resultat = [];
+    MongoClient.connect(url, function (err, db) {
         if (err) throw err;
         var dbo = db.db("DBLP");
-
-        var query = { type: "Article" };
-
-        dbo.collection("publis").find(query).toArray(function (err, result) {
+        dbo.collection("publis").find({}, function (err, result) {
             if (err) throw err;
+            resultat = result;
             console.log(result);
-            res.json(result);
-            //db.close();
+            db.close();
         });
     });
+    res.json(resultat);*/
 };
 
 exports.launchQuery2 = function (req, res) {
