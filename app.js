@@ -7,12 +7,12 @@ var express = require('express'),
     bodyParser = require('body-parser');
 
 //Models
-//var DBLP = require('./api/models/dblpModel');
+var DBLP = require('./api/models/dblpModel');
 
-//global.config = require('./modules/config');
-//global.db = require('./modules/db');
+global.config = require('./modules/config');
+global.db = require('./modules/db');
 
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
