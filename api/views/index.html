@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>MongoDBApp</title>
+  <head>
+
+  <body>
+    <header>
+      <h1>MongoDBApp<h1>
+    </header>
+
+    <div id="title">      
+      <h2>Welcome ! </h2>
+    </div>
+
+    <form method="post" action="../routes/dblpRoutes.js/query1">
+      <label>Every title, book title and year of publications where one of the authors is Matthieu Cord : </label>
+      <input type="submit" value="Query 1">
+    </form> <br/>
+
+    <form method="post" action="../routes/dblpRoutes.js/query2">
+      <label>Every title of publications where the book title is SmartKom : </label>
+      <input type="submit" value="Query 2">
+    </form> <br/>
+
+    <form method="post" action="../routes/dblpRoutes.js/query3">
+      <label>Every title and author of publications where type of publication is an article and the book title is “Machine Learning Techniques for Multimedia” : </label>
+      <input type="submit" value="Query 3">
+    </form> <br/>
+
+    <form method="post" action="../routes/dblpRoutes.js/query4">
+      <label>Every title and year of publications where one of the authors is Massimo Zancanaro and sort it by year of publication : </label>
+      <input type="submit" value="Query 4">
+    </form> <br/>
+
+    <form method="post" action="../routes/dblpRoutes.js/query5">
+      <label>The mean of the year of publication of each of the authors : </label>
+      <input type="submit" value="Query 5">
+    </form> <br/>
+      
+    
+  </body>
+<html>

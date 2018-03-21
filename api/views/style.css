@@ -1,0 +1,33 @@
+html {
+color:black;
+background-color:white;
+background-repeat:no-repeat;
+font-family: 'Comic Sans MS', cursive;
+}
+
+h1{
+	font-size: 48px;
+	text-align: center;
+}
+
+h2{
+	font-size: 24px;
+	text-align: center;
+}
+
+input{
+	border:none;
+	padding:6px 0 6px 0;
+	border-radius:8px;
+	background: #008080;
+	color: #FFFFFF;	
+	box-shadow:3px 3px 12px #000000;
+	font-family: 'Comic Sans MS', cursive;
+	font-weight: bold;
+	text-align: center;
+	width:150px;
+}
+
+form{
+	text-align: center;
+}
