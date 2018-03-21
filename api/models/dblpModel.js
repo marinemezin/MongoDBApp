@@ -14,7 +14,7 @@ var PublicationSchema = new Schema({
 		required : 'Type of publication'
 	},
 	year : {
-		type : double,
+		type : Number,
 		required : 'Year of publication'
 	},
 	title : {
@@ -27,11 +27,11 @@ var PublicationSchema = new Schema({
 	},
 	pages : {
 		start : {
-		type : double,
+		type : Number,
 		required : 'Page of start of publication'
 		},
 		end : {
-		type : double,
+		type : Number,
 		required : 'Page of end of publication'
 		}
 	},
