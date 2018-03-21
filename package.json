@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marinemezin/MongoDBApp/issues"
   },
-  "homepage": "https://github.com/marinemezin/MongoDBApp#readme"
+  "homepage": "https://github.com/marinemezin/MongoDBApp#readme",
+  "dependencies": {
+    "all": "0.0.0"
+  }
 }
