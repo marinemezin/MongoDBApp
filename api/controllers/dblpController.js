@@ -7,8 +7,13 @@ var DBLP = db.model('Publication');
 
 //Research
 exports.launchQuery1 = function (req, res) {
-    DBLP.find({ "authors": "Matthieu Cord" }, { "title": 1, "booktitle": 1, "year": 1 }).then(function (dblps) {
+    /*DBLP.find({ "authors": "Matthieu Cord" }, { "title": 1, "booktitle": 1, "year": 1 }).then(function (dblps) {
         res.status(200).json(dblps);
+    }).catch(function (err) {
+        errorHandler.error(res, err.message, "Failed to get publications");
+    });*/
+    DBLP.find({}).then(function (dblps) {
+        res.json(dblps);
     }).catch(function (err) {
         errorHandler.error(res, err.message, "Failed to get publications");
     });
