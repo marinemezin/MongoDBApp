@@ -14,7 +14,7 @@ var PublicationSchema = new Schema({
 		required : 'Type of publication'
 	},
 	year : {
-		type : float,
+		type : int,
 		required : 'Year of publication'
 	},
 	title : {
