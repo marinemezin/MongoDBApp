@@ -13,13 +13,14 @@ var url = "mongodb://localhost:" + PORT;
 
 //Research
 exports.launchQuery1 = function (req, res) {
+	console.log("OK");
     /*DBLP.find({ "authors": "Matthieu Cord" }, { "title": 1, "booktitle": 1, "year": 1 }).then(function (dblps) {
         res.status(200).json(dblps);
     }).catch(function (err) {
         errorHandler.error(res, err.message, "Failed to get publications");
     });*/
         
-    /*var resultat = [];
+    var resultat = [];
     MongoClient.connect(url, function (err, db) {
         if (err) throw err;
         var dbo = db.db("DBLP");
@@ -30,7 +31,7 @@ exports.launchQuery1 = function (req, res) {
             db.close();
         });
     });
-    res.json(resultat);*/
+    res.json(resultat);
 };
 
 exports.launchQuery2 = function (req, res) {
