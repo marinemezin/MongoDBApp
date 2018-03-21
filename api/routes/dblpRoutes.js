@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = function (app) {
-    var library = require('../controllers/dblpController');
+    var dblp = require('../controllers/dblpController');
 
     app.route('/xxx')
-        .get(library.XXX)
+        .get(dblp.XXX)
 
     app.route('/xxx')
-        .get(library.XXX)
+        .get(dblp.XXX)
 };
