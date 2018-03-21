@@ -11,4 +11,10 @@ module.exports = function (app) {
 
     app.route('/query3')
         .get(dblp.launchQuery3)
+
+    app.route('/query4')
+        .get(dblp.launchQuery4)
+
+    app.route('/query5')
+        .get(dblp.launchQuery5)
 };

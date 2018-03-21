@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 //Utils
 var errorHandler = require('../handlers/dblpHandler');
 //Model
-var DBLP = db.model('publis');
+var DBLP = db.model('Publication');
 
 //Research
 exports.launchQuery1 = function (req, res) {
