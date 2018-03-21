@@ -2,7 +2,7 @@
 
 var HOST = 'localhost',
     PORT = 3000,
-    DB = 'DBLP',
+    DB = 'dblp',
     URI = 'mongodb://' + HOST + '/' + DB;
 
 module.exports = {
