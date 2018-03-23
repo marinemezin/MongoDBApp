@@ -8,7 +8,7 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use('/css', express.static('api/views', { root: __dirname }));
+app.use(express.static("./api/views"));
 
 app.get('/', function (req, res) {
     res.sendFile('api/views/index.html', { root: __dirname });
