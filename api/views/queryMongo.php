@@ -1,5 +1,5 @@
 <?php
-$mongo = new \MongoDB\Driver\Manager('mongodb://root:root@192.168.0.127/db');
+$mongo = new \MongoDB\Driver\Manager('mongodb://localhost:27017/dblp');
 $filter = $_POST["filter"];
 $options = $_POST["options"];
 $query = new MongoDB\Driver\Query($filter, $options);
