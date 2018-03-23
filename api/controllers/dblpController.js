@@ -11,9 +11,11 @@ exports.launchQuery1 = function (req, res) {
         var db = client.db('dblp');
         db.collection('publis').find({ authors: "Matthieu Cord" }, { title: 1, booktitle: 1, year: 1 }).toArray()
             .then(function (dblps) {
-                res.status(200).json(dblps);
+                //res.status(200).json(dblps);
+                res.send(dblps);
             }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
+                //errorHandler.error(res, err.message, "Failed to get publications");
+                res.send("error");
             });
     });
 }
