@@ -6,9 +6,8 @@
     "\\api\\handlers",
     "\\api\\models",
     "\\api\\routes",
-    "\\api\\views",
-    "\\modules"
+    "\\api\\views"
   ],
-  "SelectedNode": "\\api\\handlers\\dblpHandler.js",
+  "SelectedNode": "\\api\\views\\admin_id.html",
   "PreviewInSolutionExplorer": false
 }
