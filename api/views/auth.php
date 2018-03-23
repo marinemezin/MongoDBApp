@@ -2,8 +2,8 @@
       function auth(){
       if(isset($_POST["nom"]) && isset($_POST["passwd"]))
       {
-      $nom=$_POST["nom"];
-      $passwd=$_POST["passwd"];
+      $nom=$_POST["login"];
+      $passwd=$_POST["password"];
       $chaine=$nom.":".$passwd;
       //echo "nom = " .$nom. "<br>";
       //echo "password = " .$passwd. "<br>";
@@ -15,7 +15,7 @@
       //echo $ligne;
       if(strcmp("admin:admin", $chaine) == 0)
       {
-	  $url = './admin_id.html'
+	  $url = './add_query.html'
 	  header('Location: '.$url);
       //echo "Acces autorise;. <br>";
       //echo "<a href=\"admin_id.html\"><img src=\"images/quitter.jpg\"></a>";
