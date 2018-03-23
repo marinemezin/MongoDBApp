@@ -6,16 +6,13 @@ var url = "mongodb://localhost:27017/dblp";
 
 //Research
 exports.launchQuery1 = function (req, res) {
-    console.log("query1");
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
         db.collection('publis').find({ authors: "Matthieu Cord" }, { title: 1, booktitle: 1, year: 1 }).toArray()
             .then(function (dblps) {
-                //res.status(200).json(dblps);
-                res.send(dblps);
+                res.status(200).json(dblps);
             }).catch(function (err) {
-                //errorHandler.error(res, err.message, "Failed to get publications");
-                res.send("error");
+                errorHandler.error(res, err.message, "Failed to get publications");
             });
     });
 }
