@@ -21,6 +21,21 @@ input{
 	border-radius:8px;
 	background: #008080;
 	color: #FFFFFF;	
+	opacity: 1.0;
+	box-shadow:3px 3px 12px #000000;
+	font-family: 'Comic Sans MS', cursive;
+	font-weight: bold;
+	text-align: center;
+	width:150px;
+}
+
+input:hover{
+	border:none;
+	padding:6px 0 6px 0;
+	border-radius:8px;
+	background: #008080;
+	color: #FFFFFF;	
+	opacity: 0.8;
 	box-shadow:3px 3px 12px #000000;
 	font-family: 'Comic Sans MS', cursive;
 	font-weight: bold;
