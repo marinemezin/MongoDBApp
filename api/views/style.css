@@ -20,7 +20,7 @@ h2{
 	text-align: center;
 }
 
-input{
+.Buttons{
 	border:none;
 	padding:6px 0 6px 0;
 	border-radius:8px;
@@ -34,7 +34,7 @@ input{
 	width:150px;
 }
 
-input:hover{
+.Buttons:hover{
 	border:none;
 	padding:6px 0 6px 0;
 	border-radius:8px;

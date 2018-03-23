@@ -17,4 +17,7 @@ module.exports = function (app) {
 
     app.route('/query5')
         .get(dblp.launchQuery5)
+
+    app.route('/queryModifiable')
+        .get(dblp.launchQuery6)
 };

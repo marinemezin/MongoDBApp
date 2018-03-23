@@ -4,12 +4,15 @@
       {
       $nom=$_POST["login"];
       $passwd=$_POST["password"];
+	  $chaine="";
+	  if(!empty($nom) AND !empty($passwd)){
       $chaine=$nom.":".$passwd;
+	  }
       //echo "nom = " .$nom. "<br>";
       //echo "password = " .$passwd. "<br>";
       //echo "chaine =" .$chaine. "<br>";
       //$i=1;
-      $id_file=fopen("utilisateurs.txt","r" );
+      //$id_file=fopen("utilisateurs.txt","r" );
       //while($ligne=fgets($id_file,100))
       //{
       //echo $ligne;
