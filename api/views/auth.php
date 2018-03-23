@@ -1,13 +1,9 @@
 <?php
-      function auth(){
-      if(isset($_POST["nom"]) && isset($_POST["passwd"]))
+      if(isset($_POST["login"]) && isset($_POST["password"]))
       {
       $nom=$_POST["login"];
       $passwd=$_POST["password"];
-	  $chaine="";
-	  if(!empty($nom) AND !empty($passwd)){
       $chaine=$nom.":".$passwd;
-	  }
       //echo "nom = " .$nom. "<br>";
       //echo "password = " .$passwd. "<br>";
       //echo "chaine =" .$chaine. "<br>";
@@ -18,9 +14,9 @@
       //echo $ligne;
       if(strcmp("admin:admin", $chaine) == 0)
       {
-	  $url = './add_query.html'
-	  header('Location: '.$url);
-      //echo "Acces autorise;. <br>";
+	  //$url = './add_query.html'
+	  //header('Location: '.$url);
+      echo "Acces autorise;. <br>";
       //echo "<a href=\"admin_id.html\"><img src=\"images/quitter.jpg\"></a>";
       //echo $chaine;
       }
@@ -29,7 +25,6 @@
 	  echo "<b>Accs refuse; !</b>\n<br>Assurez vous que votre login et mot de passe sont valides.<br>";
       //echo "<br><hr><br><a href=\"index1.html\"><img src=\"images/retour.jpg\"></a><br>";
       //echo $chaine;
-      exit();
       }
       //} //fin du while
       //fclose($id_file);
@@ -38,6 +33,4 @@
       {
       echo "<h2>Veuillez vous authentifier !</h2> ";
       }
-      }
-      echo auth();
 ?>
