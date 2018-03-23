@@ -9,6 +9,6 @@
     "\\api\\views",
     "\\modules"
   ],
-  "SelectedNode": "\\modules\\config.js",
+  "SelectedNode": "\\api\\handlers\\dblpHandler.js",
   "PreviewInSolutionExplorer": false
 }
