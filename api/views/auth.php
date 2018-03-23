@@ -12,7 +12,7 @@
       //while($ligne=fgets($id_file,100))
       //{
       //echo $ligne;
-      if(strcmp("admin:admin", $chaine) == 0)
+      if(strcmp("admin", $nom) == 0)
       {
 	  //$url = './add_query.html'
 	  //header('Location: '.$url);
