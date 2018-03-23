@@ -6,6 +6,7 @@ var url = "mongodb://localhost:27017/dblp";
 
 //Research
 exports.launchQuery1 = function (req, res) {
+    console.log("query1");
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
         db.collection('publis').find({ authors: "Matthieu Cord" }, { title: 1, booktitle: 1, year: 1 }).toArray()
@@ -46,7 +47,7 @@ exports.launchQuery4 = function (req, res) {
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
         db.collection('publis').aggregate([
-                { $match: { authors: "Massimo Zacanaro" } },
+                { $match: { authors: "Massimo Zancanaro" } },
                 { $project: { title: 1, year: 1 } },
                 { $sort: { year: 1 } }]).toArray()
             .then(function (dblps) {
