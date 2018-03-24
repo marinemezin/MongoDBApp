@@ -18,6 +18,6 @@ module.exports = function (app) {
     app.route('/query5')
         .get(dblp.launchQuery5)
 
-    app.route('/queryModifiable')
+    app.route('/queryAuthor')
         .get(dblp.launchQuery6)
 };
