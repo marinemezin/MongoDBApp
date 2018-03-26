@@ -4,6 +4,7 @@ var errorHandler = require('../handlers/dblpHandler');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/dblp";
 
+
 //Research
 exports.launchQuery1 = function (req, res) {
     MongoClient.connect(url, function (err, client) {
@@ -74,6 +75,16 @@ exports.launchQuery5 = function (req, res) {
 
 exports.launchQuery6 = function (req, res) {
     var authorName = req.url.split("=")[1];
+    console.log(authorName);
+    MongoClient.connect(url, function (err, client) {
+        var db = client.db('dblp');
+        db.collection('publis').find({ authors: authorName }, { title: 1, booktitle: 1, year: 1 }).toArray()
+            .then(function (dblps) {
+                res.status(200).json(dblps);
+            }).catch(function (err) {
+                errorHandler.error(res, err.message, "Failed to get publications");
+            });
+    });
 }
 
 exports.login = function (req, res) {
