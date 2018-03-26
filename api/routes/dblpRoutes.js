@@ -20,4 +20,7 @@ module.exports = function (app) {
 
     app.route('/queryAuthor')
         .get(dblp.launchQuery6)
+
+    app.route('/login')
+        .get(dblp.login)
 };
