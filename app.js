@@ -3,17 +3,17 @@
 //Modules
 var express = require('express'),
     app = express(),
-    mongoose = require('mongoose'),
+    //mongoose = require('mongoose'),
     bodyParser = require('body-parser');
 
 //Models
-var Publis = require('./api/model/dblpModel');
-Publis = mongoose.model('Publis');
+//var Publis = require('./api/model/dblpModel');
+//Publis = mongoose.model('Publis');
 
 //Connection to mongoDB
-var url = "mongodb://localhost:27017/dblp";
-mongoose.Promise = global.Promise;
-mongoose.connect(url);
+//var url = "mongodb://localhost:27017/dblp";
+//mongoose.Promise = global.Promise;
+//mongoose.connect(url);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
