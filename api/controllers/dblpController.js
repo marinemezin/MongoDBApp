@@ -100,11 +100,17 @@ exports.launchQuery6 = function (req, res) {
 
 exports.launchQuery7 = function (req, res) {
     var query = req.query.createQuery;
-    query = JSON.parse(query);
+    var order = req.query.orderBy;
+
+    var finalQuery = [];
+    finalQuery.push(JSON.parse(query));
+    if (order != "") {
+        finalQuery.push(JSON.parse(order));
+    }
 
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
-        db.collection('publis').find(query).toArray()
+        db.collection('publis').find(finalQuery[0], finalQuery[1]).toArray()
             .then(function (dblps) {
                 res.status(200).json(dblps);
             }).catch(function (err) {
