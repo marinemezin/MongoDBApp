@@ -34,11 +34,11 @@
 	  
 	  <script>
 		function auth() {
-			if(password == "admin" && login == "admin") {
+			if(password.value == "admin" && login.value == "admin") {
 				ok = "OK";
 			}
 			else {
-			ok = "Not OK";
+			ok = "Not OK" + password.value + login.value;
 			}
 			document.getElementById("OK").innerHTML = ok;
 		}
