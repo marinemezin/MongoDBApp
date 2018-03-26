@@ -75,6 +75,7 @@ exports.launchQuery5 = function (req, res) {
 
 exports.launchQuery6 = function (req, res) {
     var authorName = req.query.a_name;
+    var typeName = req.query.type;
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
         db.collection('publis').find({ authors: authorName }, { title: 1, booktitle: 1, year: 1 }).toArray()
@@ -87,19 +88,17 @@ exports.launchQuery6 = function (req, res) {
 }
 
 exports.loginAdmin = function (req, res) {
-    console.log(req.body);
-    //console.log(req.url);
-    //console.log(req.url.split("="));
-    console.log("on est la");
+    console.log(req.query.login);
+    console.log(req.query.password);
 
     /*var true_username = "admin";
     var true_password = "admin";
 
-    var username = "admin";
-    var password = "admin";
+    var username = req.query.login;
+    var password = req.query.password;
 
     if (username == true_username && password == true_password) {
-        window.location.href = 'index.html'
+        //window.location.href = 'index.html'
         res.end('true');
     }
     else {
