@@ -87,7 +87,8 @@ exports.launchQuery6 = function (req, res) {
     });
 }
 
-exports.login = function (req, res) {
+exports.loginAdmin = function (req, res) {
+    console.log(req.body.login);
     //console.log(req.url);
     //console.log(req.url.split("="));
     console.log("on est la");
