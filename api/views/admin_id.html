@@ -24,11 +24,27 @@
           <label>Password</label>
           <input type="text" name="password" required>
           <br/><br/>
-          <input class="Buttons" type="submit" value="Validation">
-      </form>
+          <button class="Buttons" onclick="FunctionAuth()">Validation</button>
+		  </form>
       <br />
 
       <button id="test" onClick="auth()">test</button>
+	  
+	  <p id="OK">test</p>
+	  
+	  <script>
+		function auth() {
+			if(password == "admin" && login == "admin") {
+				ok = "OK";
+			}
+			else {
+			ok = "Not OK";
+			}
+			document.getElementById("OK").innerHTML = ok;
+		}
+	  </script
+	  
+	 
       <!--
     $('#submitButton').click(function(){
     let name = $('#textBar').val();
