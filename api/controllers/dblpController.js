@@ -98,21 +98,19 @@ exports.launchQuery6 = function (req, res) {
     });
 }
 
-exports.loginAdmin = function (req, res) {
-    console.log(req.query.login);
-    console.log(req.query.password);
+exports.launchQuery7 = function (req, res) {
+    var query = req.query.createQuery;
+    console.log(query);
 
-    /*var true_username = "admin";
-    var true_password = "admin";
+    //A mettre en json
 
-    var username = req.query.login;
-    var password = req.query.password;
-
-    if (username == true_username && password == true_password) {
-        //window.location.href = 'index.html'
-        res.end('true');
-    }
-    else {
-        res.end('false');
-    }*/
+    MongoClient.connect(url, function (err, client) {
+        var db = client.db('dblp');
+        db.collection('publis').find(query).toArray()
+            .then(function (dblps) {
+                res.status(200).json(dblps);
+            }).catch(function (err) {
+                errorHandler.error(res, err.message, "Failed to get publications");
+            });
+    });
 }

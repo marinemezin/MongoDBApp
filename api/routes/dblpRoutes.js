@@ -21,6 +21,6 @@ module.exports = function (app) {
     app.route('/queryPerso')
         .get(dblp.launchQuery6)
 
-    app.route('/login')
-        .get(dblp.loginAdmin)
+    app.route('/queryCreation')
+        .get(dblp.launchQuery7)
 };
