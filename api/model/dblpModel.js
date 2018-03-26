@@ -53,4 +53,4 @@ var PublisSchema = new Schema({
     }
 }, { versionKey: false });
 
-module.exports = mongoose.model('Publications', PublisSchema);
+module.exports = mongoose.model('Publis', PublisSchema);

@@ -73,5 +73,4 @@ exports.launchQuery5 = function (req, res) {
 };
 
 exports.launchQuery6 = function (req, res) {
-    console.log(req.params);
 }
