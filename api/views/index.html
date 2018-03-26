@@ -64,9 +64,12 @@
         <br />
         <div id="catégorie 3">
             <h3>Create your request: </h3>
+            <p>.find(here the text you will write) : </p>
             <form method="get" action="../queryCreation">
-                <label>.find(here the text you will write) : </label>
+                <label>{ "authors": "Matthieu Cord" }</label>
                 <textarea rows="10" cols="50" name="createQuery"></textarea>
+                <label>{ "title": 1, "booktitle": 1, "year": 1 }</label>
+                <textarea rows="10" cols="50" name="orderBy"></textarea>
                 <button class="Buttons" type="submit">Submit</button>
             </form>
             <br />

@@ -100,9 +100,7 @@ exports.launchQuery6 = function (req, res) {
 
 exports.launchQuery7 = function (req, res) {
     var query = req.query.createQuery;
-    console.log(query);
-
-    //A mettre en json
+    query = JSON.parse(query);
 
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
