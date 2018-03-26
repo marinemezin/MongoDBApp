@@ -98,6 +98,20 @@ exports.launchQuery6 = function (req, res) {
     });
 }
 
+exports.launchQuery7 = function (req, res) {
+    var query = req.query.createQuery;
+    console.log(query);
+
+    MongoClient.connect(url, function (err, client) {
+        var db = client.db('dblp');
+        db.collection('publis').find(query, { title: 1, booktitle: 1, year: 1 }).toArray()
+            .then(function (dblps) {
+                res.status(200).json(dblps);
+            }).catch(function (err) {
+                errorHandler.error(res, err.message, "Failed to get publications");
+            });
+    });
+}
 exports.loginAdmin = function (req, res) {
     console.log(req.query.login);
     console.log(req.query.password);
