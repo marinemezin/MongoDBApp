@@ -102,31 +102,15 @@ exports.launchQuery7 = function (req, res) {
     var query = req.query.createQuery;
     console.log(query);
 
+    //A mettre en json
+
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
-        db.collection('publis').find(query, { title: 1, booktitle: 1, year: 1 }).toArray()
+        db.collection('publis').find(query).toArray()
             .then(function (dblps) {
                 res.status(200).json(dblps);
             }).catch(function (err) {
                 errorHandler.error(res, err.message, "Failed to get publications");
             });
     });
-}
-exports.loginAdmin = function (req, res) {
-    console.log(req.query.login);
-    console.log(req.query.password);
-
-    /*var true_username = "admin";
-    var true_password = "admin";
-
-    var username = req.query.login;
-    var password = req.query.password;
-
-    if (username == true_username && password == true_password) {
-        //window.location.href = 'index.html'
-        res.end('true');
-    }
-    else {
-        res.end('false');
-    }*/
 }
