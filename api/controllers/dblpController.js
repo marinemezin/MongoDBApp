@@ -75,3 +75,19 @@ exports.launchQuery5 = function (req, res) {
 exports.launchQuery6 = function (req, res) {
     var authorName = req.url.split("=")[1];
 }
+
+exports.login = function (req, res) {
+    console.log(req.url.split("="));
+    var true_username = "admin";
+    var true_password = "admin";
+
+    var username = "admin";
+    var password = "admin";
+
+    if (username == true_username && password == true_password) {
+        res.end('true');
+    }
+    else {
+        res.end('false');
+    }
+}
