@@ -17,7 +17,7 @@
             window.location.href = 'index.html'
         }
     </script-->
-      <form method="get" action="../login">
+      <!--<form method="get" action="../login">-->
           <label>Login</label>
           <input type="text" id="login" required>
           <br/><br/>
@@ -25,7 +25,7 @@
           <input type="text" id="password" required>
           <br/><br/>
           <button class="Buttons" onclick="FunctionAuth()">Validation</button>
-		  </form>
+		<!--  </form>  -->
       <br />
 
       <button id="test" onClick="auth()">test</button>
@@ -33,9 +33,10 @@
 	  <p id="OK">test</p>
 	  
 	  <script>
-		function auth() {
+		function FunctionAuth() {
 			if(password.value == "admin" && login.value == "admin") {
 				ok = "OK";
+				document.location.href="https://www.youtube.com/watch?v=K0l920JpRGI";
 			}
 			else {
 			ok = "Not OK" + password.value + login.value;
