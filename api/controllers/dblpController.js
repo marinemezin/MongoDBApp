@@ -76,25 +76,26 @@ exports.launchQuery5 = function (req, res) {
 exports.launchQuery6 = function (req, res) {
     var authorName = req.query.a_name;
     var typeName = req.query.a_type;
-    console.log();
+    console.log("aname:" + req.query.a_name);
+    console.log("atype:" + req.query.a_type);
+
     var query = "{";
 
-    if (authorName != undefined) {
+    if (authorName != "") {
         query += 'authors:"' + authorName + '"';
-        if (typeName != undefined) {
+        if (typeName != "") {
             query += ', type: "' + typeName + '"';
         }
     }
     else {
-        if (typeName != undefined) {
+        if (typeName != "") {
             query += 'type: "' + typeName + '"';
         }
     }
 
     query += "}";
-    console.log(query);
 
-    /*MongoClient.connect(url, function (err, client) {
+    MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
         db.collection('publis').find({ authors: authorName }, { title: 1, booktitle: 1, year: 1 }).toArray()
             .then(function (dblps) {
@@ -102,7 +103,7 @@ exports.launchQuery6 = function (req, res) {
             }).catch(function (err) {
                 errorHandler.error(res, err.message, "Failed to get publications");
             });
-    });*/
+    });
 }
 
 exports.loginAdmin = function (req, res) {
