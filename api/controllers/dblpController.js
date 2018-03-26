@@ -78,6 +78,7 @@ exports.launchQuery6 = function (req, res) {
 
 exports.login = function (req, res) {
     console.log(req.url.split("="));
+    console.log("on est la");
     var true_username = "admin";
     var true_password = "admin";
 
@@ -85,6 +86,7 @@ exports.login = function (req, res) {
     var password = "admin";
 
     if (username == true_username && password == true_password) {
+        window.location.href = 'index.html'
         res.end('true');
     }
     else {
