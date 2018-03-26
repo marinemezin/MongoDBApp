@@ -12,27 +12,28 @@
       </header>
 
       <!--script type="text/javascript">
-          function login(login, mdp) {
-              return true;
-              window.location.href = 'index.html'
-          }
-      </script-->
+        function login(login, mdp) {
+            return true;
+            window.location.href = 'index.html'
+        }
+    </script-->
       <form method="get" action="../login">
           <label>Login</label>
-          <input type="text" name="login"><br/><br/>
+          <input type="text" name="login"><br /><br />
           <label>Password</label>
-          <input type="text" name="password"><br/><br/>
+          <input type="text" name="password"><br /><br />
           <input class="Buttons" type="submit" value="Validation">
       </form>
-      <br/>
+      <br />
+
       <button id="test" onClick="auth()">test</button>
       <!--
-     $('#submitButton').click(function(){
-     let name = $('#textBar').val();
-     let pass = $('#passwordBar').val();
-     if(name === "Admin" && pass === "admin"){
-     window.location = "../admin";
-     }
-     })-->
+    $('#submitButton').click(function(){
+    let name = $('#textBar').val();
+    let pass = $('#passwordBar').val();
+    if(name === "Admin" && pass === "admin"){
+    window.location = "../admin";
+    }
+    })-->
   </body>
 </html>
