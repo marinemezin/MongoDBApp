@@ -76,28 +76,20 @@ exports.launchQuery5 = function (req, res) {
 exports.launchQuery6 = function (req, res) {
     var authorName = req.query.a_name;
     var typeName = req.query.a_type;
-    console.log("aname:" + req.query.a_name);
-    console.log("atype:" + req.query.a_type);
 
-    var query = "{";
-
+    var query;
     if (authorName != "") {
-        query += 'authors:"' + authorName + '"';
-        if (typeName != "") {
-            query += ', type: "' + typeName + '"';
-        }
+        if (typeName != "") { query = { authors: authorName, type: typeName }; }
+        else { query = { authors: authorName }; }
     }
     else {
-        if (typeName != "") {
-            query += 'type: "' + typeName + '"';
-        }
+        if (typeName != "") { query = { type: typeName }; }
+        else { query = {}; }
     }
-
-    query += "}";
 
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
-        db.collection('publis').find({ authors: authorName }, { title: 1, booktitle: 1, year: 1 }).toArray()
+        db.collection('publis').find(query, { title: 1, booktitle: 1, year: 1 }).toArray()
             .then(function (dblps) {
                 res.status(200).json(dblps);
             }).catch(function (err) {
