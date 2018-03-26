@@ -77,6 +77,7 @@ exports.launchQuery6 = function (req, res) {
 }
 
 exports.login = function (req, res) {
+    console.log(req.url);
     console.log(req.url.split("="));
     console.log("on est la");
     /*var true_username = "admin";
