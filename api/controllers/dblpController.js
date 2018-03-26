@@ -74,8 +74,7 @@ exports.launchQuery5 = function (req, res) {
 };
 
 exports.launchQuery6 = function (req, res) {
-    var authorName = req.url.split("=")[1];
-    console.log(authorName);
+    var authorName = req.query.a_name;
     MongoClient.connect(url, function (err, client) {
         var db = client.db('dblp');
         db.collection('publis').find({ authors: authorName }, { title: 1, booktitle: 1, year: 1 }).toArray()
@@ -88,7 +87,7 @@ exports.launchQuery6 = function (req, res) {
 }
 
 exports.loginAdmin = function (req, res) {
-    console.log(req.body.login);
+    console.log(req.body);
     //console.log(req.url);
     //console.log(req.url.split("="));
     console.log("on est la");
