@@ -11,17 +11,11 @@
           <h1>Administator identification</h1>
       </header>
 
-      <!--script type="text/javascript">
-        function login(login, mdp) {
-            return true;
-            window.location.href = 'index.html'
-        }
-    </script-->
 	<p align="center">
 	  <label>Login</label>
 	  <input type="text" id="login" required><br/><br/>
 	  <label>Password</label>
-	  <input type="text" id="password" required><br/><br/>
+	  <input type="password" id="password" required><br/><br/>
 	  <button class="Buttons" onClick="FunctionAuth()">Validation</button><br />
 	</p>
 
@@ -31,7 +25,7 @@
 		function FunctionAuth() {
 			if(password.value == "admin" && login.value == "admin") {
 				ok = "OK";
-				document.location.href="add_query.html";
+				document.location.href="new_query.html";
 			}
 			else {
 			ok = "Not OK" + password.value + login.value;
@@ -41,13 +35,6 @@
 	  </script>
 	  
 	 
-      <!--
-    $('#submitButton').click(function(){
-    let name = $('#textBar').val();
-    let pass = $('#passwordBar').val();
-    if(name === "Admin" && pass === "admin"){
-    window.location = "../admin";
-    }
-    })-->
+
   </body>
 </html>
