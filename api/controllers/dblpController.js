@@ -18,7 +18,7 @@ exports.launchQuery1 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 }
@@ -35,7 +35,7 @@ exports.launchQuery2 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 };
@@ -53,7 +53,7 @@ exports.launchQuery3 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 };
@@ -73,7 +73,7 @@ exports.launchQuery4 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 };
@@ -93,7 +93,7 @@ exports.launchQuery5 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 };
@@ -123,7 +123,7 @@ exports.launchQuery6 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 }
@@ -139,7 +139,7 @@ exports.launchQuery7 = function (req, res) {
             finalQuery.push(JSON.parse(order));
         }
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Bad query");
     }
 
@@ -154,7 +154,7 @@ exports.launchQuery7 = function (req, res) {
                 });
         });
     }
-    catch (error) {
+    catch (err) {
         errorHandler.error(res, err.message, "Failed to connect to the database");
     }
 }
