@@ -7,70 +7,95 @@ var url = "mongodb://localhost:27017/dblp";
 
 //Research
 exports.launchQuery1 = function (req, res) {
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').find({ authors: "Matthieu Cord" }, { title: 1, booktitle: 1, year: 1 }).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').find({ authors: "Matthieu Cord" }, { title: 1, booktitle: 1, year: 1 }).toArray()
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 }
 
 exports.launchQuery2 = function (req, res) {
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').find({ booktitle: "SmartKom" }, { title: 1 }).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').find({ booktitle: "SmartKom" }, { title: 1 }).toArray()
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 };
 
 exports.launchQuery3 = function (req, res) {
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').find({ type: "Article", booktitle: "Machine Learning Techniques for Multimedia" },
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').find({ type: "Article", booktitle: "Machine Learning Techniques for Multimedia" },
                 { title: 1, authors: 1 }).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 };
 
 exports.launchQuery4 = function (req, res) {
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').aggregate([
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').aggregate([
                 { $match: { authors: "Massimo Zancanaro" } },
                 { $project: { title: 1, year: 1 } },
                 { $sort: { year: 1 } }]).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 };
 
 exports.launchQuery5 = function (req, res) {
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').aggregate([
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').aggregate([
                 { $unwind: "$authors" },
                 { $group: { _id: "$authors", mean_year_pub: { $avg: "$year" } } },
                 { $sort: { mean_year_pub: 1 } }]).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 };
 
 exports.launchQuery6 = function (req, res) {
@@ -87,34 +112,49 @@ exports.launchQuery6 = function (req, res) {
         else { query = {}; }
     }
 
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').find(query, { title: 1, booktitle: 1, year: 1 }).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').find(query, { title: 1, booktitle: 1, year: 1 }).toArray()
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 }
 
 exports.launchQuery7 = function (req, res) {
     var query = req.query.createQuery;
     var order = req.query.orderBy;
 
-    var finalQuery = [];
-    finalQuery.push(JSON.parse(query));
-    if (order != "") {
-        finalQuery.push(JSON.parse(order));
+    try {
+        var finalQuery = [];
+        finalQuery.push(JSON.parse(query));
+        if (order != "") {
+            finalQuery.push(JSON.parse(order));
+        }
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Bad query");
     }
 
-    MongoClient.connect(url, function (err, client) {
-        var db = client.db('dblp');
-        db.collection('publis').find(finalQuery[0], finalQuery[1]).toArray()
-            .then(function (dblps) {
-                res.status(200).json(dblps);
-            }).catch(function (err) {
-                errorHandler.error(res, err.message, "Failed to get publications");
-            });
-    });
+    try {
+        MongoClient.connect(url, function (err, client) {
+            var db = client.db('dblp');
+            db.collection('publis').find(finalQuery[0], finalQuery[1]).toArray()
+                .then(function (dblps) {
+                    res.status(200).json(dblps);
+                }).catch(function (err) {
+                    errorHandler.error(res, err.message, "Failed to get publications");
+                });
+        });
+    }
+    catch (error) {
+        errorHandler.error(res, err.message, "Failed to connect to the database");
+    }
 }
