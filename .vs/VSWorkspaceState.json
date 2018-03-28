@@ -4,7 +4,6 @@
     "\\api",
     "\\api\\controllers",
     "\\api\\handlers",
-    "\\api\\model",
     "\\api\\routes",
     "\\api\\views"
   ],

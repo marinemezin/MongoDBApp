@@ -4,8 +4,7 @@ var errorHandler = require('../handlers/dblpHandler');
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/dblp";
 
-
-//Research
+//Researches
 exports.launchQuery1 = function (req, res) {
     try {
         MongoClient.connect(url, function (err, client) {
