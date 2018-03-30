@@ -11,7 +11,8 @@ exports.launchQuery1 = function (req, res) {
             var db = client.db('dblp');
             db.collection('publis').find({ authors: "Matthieu Cord" }, { title: 1, booktitle: 1, year: 1 }).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
@@ -28,7 +29,8 @@ exports.launchQuery2 = function (req, res) {
             var db = client.db('dblp');
             db.collection('publis').find({ booktitle: "SmartKom" }, { title: 1 }).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
@@ -46,7 +48,8 @@ exports.launchQuery3 = function (req, res) {
             db.collection('publis').find({ type: "Article", booktitle: "Machine Learning Techniques for Multimedia" },
                 { title: 1, authors: 1 }).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
@@ -66,7 +69,8 @@ exports.launchQuery4 = function (req, res) {
                 { $project: { title: 1, year: 1 } },
                 { $sort: { year: 1 } }]).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
@@ -86,7 +90,8 @@ exports.launchQuery5 = function (req, res) {
                 { $group: { _id: "$authors", mean_year_pub: { $avg: "$year" } } },
                 { $sort: { mean_year_pub: 1 } }]).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
@@ -116,7 +121,8 @@ exports.launchQuery6 = function (req, res) {
             var db = client.db('dblp');
             db.collection('publis').find(query, { title: 1, booktitle: 1, year: 1 }).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
@@ -147,7 +153,8 @@ exports.launchQuery7 = function (req, res) {
             var db = client.db('dblp');
             db.collection('publis').find(finalQuery[0], finalQuery[1]).toArray()
                 .then(function (dblps) {
-                    res.status(200).json(dblps);
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send(JSON.stringify(dblps, null, 3));
                 }).catch(function (err) {
                     errorHandler.error(res, err.message, "Failed to get publications");
                 });
